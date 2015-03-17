@@ -1,0 +1,33 @@
+priority -40
+
+snippet jade "Jasmine / describe" b
+describe('${1:A suite}', function() {
+	$2
+});
+endsnippet
+
+snippet jait "Jasmine / it" b
+it('${1:contains spec with an expectation}', function() {
+	$2
+});
+endsnippet
+
+snippet jadeit "Jasmine / describe it" b
+describe('${1:A suite}', function() {
+	it('${2:contains spec with an expectation}', function() {
+		$3
+	});
+});
+endsnippet
+
+snippet jabeea "Jasmine / before each" b
+beforeEach(function() {
+	$1
+});
+endsnippet
+
+snippet jaafea "Jasmine / after each" b
+afterEach(function() {
+	$1
+});
+endsnippet
