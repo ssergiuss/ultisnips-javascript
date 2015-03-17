@@ -1,0 +1,13 @@
+priority -40
+
+snippet jaru "Jasmine / runs" b
+runs(function() {
+	$1
+});
+endsnippet
+
+snippet jawa "Jasmine / waits for" b
+waitsFor(function() {
+	$1
+}, '${1:Wait for message}', ${2:milliseconds});
+endsnippet
