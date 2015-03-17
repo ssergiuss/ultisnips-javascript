@@ -1,0 +1,125 @@
+priority -40
+
+snippet jaex "Jasmine / expect" b
+expect(${1:foo})$2;
+endsnippet
+
+snippet jaan "Jasmine / any" w
+jasmine.any(${1:Object})
+endsnippet
+
+snippet jaexbe "Jasmine / expect to be" b
+expect(${1:foo}).toBe(${2:bar});
+endsnippet
+
+snippet jaexnbe "Jasmine / expect not to be" b
+expect(${1:foo}).not.toBe(${2:bar});
+endsnippet
+
+snippet jaexeq "Jasmine / expect to be equal" b
+expect(${1:foo}).toEqual(${2:bar});
+endsnippet
+
+snippet jaexneq "Jasmine / expect not to be equal" b
+expect(${1:foo}).not.toEqual(${2:bar});
+endsnippet
+
+snippet jaexma "Jasmine / expect to match" b
+expect(${1:foo}).toMatch(${2:bar});
+endsnippet
+
+snippet jaexnma "Jasmine / expect not to match" b
+expect(${1:foo}).not.toMatch(${2:bar});
+endsnippet
+
+snippet jaexde "Jasmine / expect to be defined" b
+expect(${1:foo}).toBeDefined();
+endsnippet
+
+snippet jaexnde "Jasmine / expect not to be defined" b
+expect(${1:foo}).not.toBeDefined();
+endsnippet
+
+snippet jaexunde "Jasmine / expect to be undefined" b
+expect(${1:foo}).toBeUndefined();
+endsnippet
+
+snippet jaexnunde "Jasmine / expect not to be undefined" b
+expect(${1:foo}).not.toBeUndefined();
+endsnippet
+
+snippet jaexnu "Jasmine / expect to be null" b
+expect(${1:foo}).toBeNull();
+endsnippet
+
+snippet jaexnnu "Jasmine / expect not to be null" b
+expect(${1:foo}).not.toBeNull();
+endsnippet
+
+snippet jaextr "Jasmine / expect to be truthy" b
+expect(${1:foo}).toBeTruthy();
+endsnippet
+
+snippet jaexntr "Jasmine / expect not to be truthy" b
+expect(${1:foo}).not.toBeTruthy();
+endsnippet
+
+snippet jaexfa "Jasmine / expect to be falsy" b
+expect(${1:foo}).toBeFalsy();
+endsnippet
+
+snippet jaexnfa "Jasmine / expect not to be falsy" b
+expect(${1:foo}).not.toBeFalsy();
+endsnippet
+
+snippet jaexco "Jasmine / expect to contain" b
+expect(${1:foo}).toContain(${2:bar});
+endsnippet
+
+snippet jaexnco "Jasmine / expect not to contain" b
+expect(${1:foo}).not.toContain(${2:bar});
+endsnippet
+
+snippet jaexlt "Jasmine / expect to be less than" b
+expect(${1:foo}).toBeLessThan(${2:bar});
+endsnippet
+
+snippet jaexnlt "Jasmine / expect not to be less than" b
+expect(${1:foo}).not.toBeLessThan(${2:bar});
+endsnippet
+
+snippet jaexgt "Jasmine / expect to be greater than" b
+expect(${1:foo}).toBeGreaterThan(${2:bar});
+endsnippet
+
+snippet jaexngt "Jasmine / expect not to be greater than" b
+expect(${1:foo}).not.toBeGreaterThan(${2:bar});
+endsnippet
+
+snippet jaexct "Jasmine / expect to be close to" b
+expect(${1:foo}).toBeCloseTo(${2:bar}, ${3:precision});
+endsnippet
+
+snippet jaexnct "Jasmine / expect not to be close to" b
+expect(${1:foo}).not.toBeCloseTo(${2:bar}, ${3:precision});
+endsnippet
+
+snippet jaexth "Jasmine / expect to throw" b
+expect(${1:foo}).toThrow();
+endsnippet
+
+snippet jaexnth "Jasmine / expect not to throw" b
+expect(${1:foo}).not.toThrow();
+endsnippet
+
+snippet jaexca "Jasmine / expect to have been called" b
+expect(${1:foo}).toHaveBeenCalled();
+endsnippet
+
+snippet jaexnca "Jasmine / expect not to have been called" b
+expect(${1:foo}).not.toHaveBeenCalled();
+endsnippet
+
+snippet jaexcawi "Jasmine / expect to have been called with" b
+expect(${1:foo}).tohaveBeenCalledWith(${2:list, of, params});
+endsnippet
