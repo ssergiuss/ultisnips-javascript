@@ -1,0 +1,27 @@
+priority -40
+
+snippet jasp "Jasmine / spy on" b
+spyOn(${1:foo}, '${2:setBar}');
+endsnippet
+
+snippet jaspct "Jasmine / spy on and call through" b
+spyOn(${1:foo}, '${2:getBar}').andCallThrough();
+endsnippet
+
+snippet jaspre "Jasmine / spy on and return" b
+spyOn(${1:foo}, '${2:getBar}').andReturn(${3:bar});
+endsnippet
+
+snippet jaspcf "Jasmine / spy on and call fake" b
+spyOn(${1:foo}, '${2:getBar}').andCallFake(function() {
+	$3
+});
+endsnippet
+
+snippet jacrsp "Jasmine / create spy" b
+jasmine.createSpy('${1:whatAmI}');
+endsnippet
+
+snippet jacrspob "Jasmine / create spy object" b
+jasmine.createSpyObj('${1:whatAmI}', [${2:'what', 'can', 'I', 'do'}]);
+endsnippet
