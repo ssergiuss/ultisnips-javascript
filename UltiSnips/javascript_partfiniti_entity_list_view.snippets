@@ -14,16 +14,16 @@ import ${3:Entity}List from '${4:path/to/entity-list-class}';
  * @param {object}     [options]
  */
 function ${6:$3ListView}(container, options) {
-    $1.call(${6:this, container, options});
+    $1.call(${7:this, container, options});
     var parent = this.clone();
     var self = this;
 
     /**
      * @protected
      *
-     * @prop ${7:{$3}List}
+     * @prop {${8:$3List}}
      */
-    this._${8:${3/.*/\l$0/}List} = null;
+    this._${9:${3/.*/\l$0/}List} = null;
 
     /**
      * @inheritDoc
@@ -32,8 +32,8 @@ function ${6:$3ListView}(container, options) {
         parent._initDefaults.call(this);
 
         return this._extendDefaultOptions({
-            $8Class: $3List,
-            $8: {}
+            $9Class: $8,
+            $9: {}
         });
     };
 
@@ -43,7 +43,7 @@ function ${6:$3ListView}(container, options) {
     this._createSubcomponents = function() {
         parent._createSubcomponents.call(this);
 
-        this._$8 = this._listExtension.createList('${3/.*/\l$0/}');
+        this._$9 = this._listExtension.createList('${3/.*/\l$0/}');
 
         return this;
     };
