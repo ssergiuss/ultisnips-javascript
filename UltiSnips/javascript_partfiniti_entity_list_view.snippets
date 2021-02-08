@@ -1,32 +1,29 @@
 priority -40
 
-snippet lstview "Partfiniti / Views / List View" b
-import BaseView from 'js/base_v3/views/view';
-import ${1:EntityList} from '${2:path/to/entity-list-class}';
+snippet entlstview "Partfiniti / Views / Entity List View" b
+import ${1:BaseView} from '{2:js/base_v3/views/view}';
+import ${3:Entity}List from '${4:path/to/entity-list-class}';
 
 /**
- * ${3:Entity} List View.
+ * ${5:Entity} List View.
  *
  * @class
- * @extends BaseView
+ * @extends $1
  *
  * @param {DOMElement} container
  * @param {object}     [options]
  */
-function ${4:EntityListView}(container, options) {
-    BaseView.call(this, container, options);
+function $3ListView(container, options) {
+    $1.call(${6:this, container, options});
     var parent = this.clone();
     var self = this;
-
-		// TODO remove
-		this._${1/.*/\l$0/} = null;
 
     /**
      * @protected
      *
      * @prop {$1}
      */
-    this._${5} = null;
+    this._${3/.*/\l$0/}List = null;
 
     /**
      * @inheritDoc
@@ -35,8 +32,8 @@ function ${4:EntityListView}(container, options) {
         parent._initDefaults.call(this);
 
         return this._extendDefaultOptions({
-            $5Class: $1,
-            $5: {}
+            ${3/.*/\l$0/}ListClass: $1List,
+            ${3/.*/\l$0/}List: {}
         });
     };
 
@@ -46,7 +43,7 @@ function ${4:EntityListView}(container, options) {
     this._createSubcomponents = function() {
         parent._createSubcomponents.call(this);
 
-        this._$5 = this._listExtension.createList('${6}');
+        this._${3/.*/\l$0/}List = this._listExtension.createList('${3/.*/\l$0/}');
 
         return this;
     };
@@ -55,5 +52,5 @@ function ${4:EntityListView}(container, options) {
     this._init();
 }
 
-export default $4;
+export default $3ListView;
 endsnippet
