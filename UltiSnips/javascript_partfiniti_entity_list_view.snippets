@@ -13,23 +13,17 @@ import ${3:Entity}List from '${4:path/to/entity-list-class}';
  * @param {DOMElement} container
  * @param {object}     [options]
  */
-function $3ListView(container, options) {
+function ${6:$3ListView}(container, options) {
     $1.call(${6:this, container, options});
     var parent = this.clone();
     var self = this;
 
-		// TODO remove
-		this.${7:${3/.*/\l$0/}List} = null;
-
-		// TODO remove
-		this.$7 = 123;
-
     /**
      * @protected
      *
-     * @prop {$1}
+     * @prop ${7:{$3}List}
      */
-    this._${3/.*/\l$0/}List = null;
+    this._${8:${3/.*/\l$0/}List} = null;
 
     /**
      * @inheritDoc
@@ -38,8 +32,8 @@ function $3ListView(container, options) {
         parent._initDefaults.call(this);
 
         return this._extendDefaultOptions({
-            ${3/.*/\l$0/}ListClass: $3List,
-            ${3/.*/\l$0/}List: {}
+            $8Class: $3List,
+            $8: {}
         });
     };
 
@@ -49,7 +43,7 @@ function $3ListView(container, options) {
     this._createSubcomponents = function() {
         parent._createSubcomponents.call(this);
 
-        this._${3/.*/\l$0/}List = this._listExtension.createList('${3/.*/\l$0/}');
+        this._$8 = this._listExtension.createList('${3/.*/\l$0/}');
 
         return this;
     };
@@ -58,5 +52,5 @@ function $3ListView(container, options) {
     this._init();
 }
 
-export default $3ListView;
+export default $6;
 endsnippet
