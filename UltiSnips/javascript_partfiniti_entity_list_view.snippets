@@ -1,7 +1,7 @@
 priority -40
 
 snippet entlstview "Partfiniti / Views / Entity List View" b
-import ${1:BaseView} from '{2:js/base_v3/views/view}';
+import ${1:BaseView} from '${2:js/base_v3/views/view}';
 import ${3:Entity}List from '${4:path/to/entity-list-class}';
 
 /**
@@ -18,6 +18,9 @@ function $3ListView(container, options) {
     var parent = this.clone();
     var self = this;
 
+		// TODO remove
+		this.${7:${3/.*/\l$0/}List} = null;
+
     /**
      * @protected
      *
@@ -32,7 +35,7 @@ function $3ListView(container, options) {
         parent._initDefaults.call(this);
 
         return this._extendDefaultOptions({
-            ${3/.*/\l$0/}ListClass: $1List,
+            ${3/.*/\l$0/}ListClass: $3List,
             ${3/.*/\l$0/}List: {}
         });
     };
