@@ -1,0 +1,56 @@
+priority -40
+
+snippet ngservice "Partfiniti / Views / List View" b
+import BaseView from 'js/base_v3/views/view';
+import ${1} from '${2}';
+
+/**
+ * ${3} List View.
+ *
+ * @class
+ * @extends BaseView
+ *
+ * @param {DOMElement} container
+ * @param {object}     [options]
+ */
+function ${4}(container, options) {
+    BaseView.call(this, container, options);
+    var parent = this.clone();
+    var self = this;
+
+    /**
+     * @protected
+     *
+     * @prop {$1}
+     */
+    this._${5} = null;
+
+    /**
+     * @inheritDoc
+     */
+    this._initDefaults = function() {
+        parent._initDefaults.call(this);
+
+        return this._extendDefaultOptions({
+            $5Class: $1,
+            $5: {}
+        });
+    };
+
+    /**
+     * @inheritDoc
+     */
+    this._createSubcomponents = function() {
+        parent._createSubcomponents.call(this);
+
+        this._$5 = this._listExtension.createList('${6}');
+
+        return this;
+    };
+
+    // Initialize
+    this._init();
+}
+
+export default $4;
+endsnippet
