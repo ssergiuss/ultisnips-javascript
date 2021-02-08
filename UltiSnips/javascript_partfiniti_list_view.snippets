@@ -2,10 +2,10 @@ priority -40
 
 snippet lstview "Partfiniti / Views / List View" b
 import BaseView from 'js/base_v3/views/view';
-import ${1} from '${2}';
+import ${1:EntityList} from '${2:path/to/entity-list-class}';
 
 /**
- * ${3} List View.
+ * ${3:Entity} List View.
  *
  * @class
  * @extends BaseView
@@ -13,10 +13,13 @@ import ${1} from '${2}';
  * @param {DOMElement} container
  * @param {object}     [options]
  */
-function ${4}(container, options) {
+function ${4:EntityListView}(container, options) {
     BaseView.call(this, container, options);
     var parent = this.clone();
     var self = this;
+
+		// TODO remove
+		this._${4/.*/\l$0/} = null;
 
     /**
      * @protected
