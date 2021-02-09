@@ -1,0 +1,24 @@
+priority -40
+
+snippet ent "Partfiniti / Models / Entity" b
+import BaseEntity from 'js/base_v3/models/entity';
+
+/**
+ * ${1:Entity} Entity.
+ *
+ * @class
+ * @extends BaseEntity
+ *
+ * @param {object} [data]
+ */
+function ${2:Entity}(data) {
+    BaseEntity.call(this, data);
+    var parent = this.clone();
+    var self = this;
+
+    // Initialize
+    this._init();
+}
+
+export default $2;
+endsnippet
