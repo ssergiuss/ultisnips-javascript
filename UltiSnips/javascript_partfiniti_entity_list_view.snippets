@@ -2,10 +2,10 @@ priority -40
 
 snippet entlstview "Partfiniti / Views / Entity List View" b
 import ${1:BaseView} from '${2:js/base_v3/views/view}';
-import ${3:Entity}List from 'path/to/entity-list-class'; // TODO
+import $4List from 'path/to/entity-list-class'; // TODO
 
 /**
- * ${4:Entity} List View.
+ * ${3:Entity} List View.
  *
  * @class
  * @extends $1
@@ -13,7 +13,7 @@ import ${3:Entity}List from 'path/to/entity-list-class'; // TODO
  * @param {DOMElement} container
  * @param {object}     [options]
  */
-function ${5:$3ListView}(container, options) {
+function ${5:${4}ListView}(container, options) {
     $1.call(${6:this, container, options});
     var parent = this.clone();
     var self = this;
@@ -21,9 +21,9 @@ function ${5:$3ListView}(container, options) {
     /**
      * @protected
      *
-     * @prop {${7:$3List}}
+     * @prop {${7:$4List}}
      */
-    this._${8:${3/.*/\l$0/}List} = null;
+    this._${8:${4/.*/\l$0/}List} = null;
 
     /**
      * @inheritDoc
@@ -43,7 +43,7 @@ function ${5:$3ListView}(container, options) {
     this._createSubcomponents = function() {
         parent._createSubcomponents.call(this);
 
-        this._$8 = this._listExtension.createList('${3/.*/\l$0/}');
+        this._$8 = this._listExtension.createList('${4/.*/\l$0/}');
 
         return this;
     };
