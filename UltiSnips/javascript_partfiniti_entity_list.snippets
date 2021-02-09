@@ -16,7 +16,7 @@ import $4FilterGroup from 'path/to/entity-filter-group'; // TODO
  * @param {object}     [options]
  */
 function ${4:Entity}List(listCt, tableEl, options) {
-    $1.call(${5:this, listCt, tableEl, options});
+    $1.call(${5:this, listCt, tableEl, null, options});
     var parent = this.clone();
     var self = this;
 
@@ -28,8 +28,33 @@ function ${4:Entity}List(listCt, tableEl, options) {
 
         return this.extendDefaultOptions({
             filterGroupClass: $4FilterGroup, // TODO
-            filterGroupCt: '.${4/.*/\l$0/}ListToolsCt'
+            filterGroupCt: '.${4/.*/\l$0/}ListToolsCt',
+            // TODO remove if not applicable
+            table: {
+                rowClickAction: 'click'
+            },
+            // TODO remove if not applicable
+            saveForm: {
+                onRemove: function() {
+                    self.reloadAndKeepScrolling();
+                }
+            }
         });
+    };
+
+
+    /**
+     * TODO remove if not applicable
+     * @inheritDoc
+     */
+    this.onTableRowClick = function(tr) {
+        if (false === parent.onTableRowClick.call(this, tr)) {
+            return false;
+        }
+
+        this.createSaveForm('update', this.getRowData(tr));
+
+        return undefined;
     };
 
     /**
