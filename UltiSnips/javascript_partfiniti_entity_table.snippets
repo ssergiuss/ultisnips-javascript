@@ -1,0 +1,77 @@
+priority -40
+
+snippet ent "Partfiniti / Models / Entity" b
+import BaseEntityTable         from 'js/base_v2/tables/entity-table';
+import TableColumnRenderHelper from 'js/helpers/table/column-render-helper';
+import $2Config from 'path/to/entity-config'; // TODO
+
+/**
+ * ${1:Entity} Table.
+ *
+ * @class
+ * @extends BaseEntityTable
+ *
+ * @param {DOMElement} tableEl
+ * @param {object}     [options]
+ */
+function ${3:${2:Entity}Table}(tableEl, options) {
+    BaseEntityTable.call(this, tableEl, options);
+    var parent = this.clone();
+    var self = this;
+
+    /**
+     * @inheritDoc
+     */
+    this.initDefaults = function() {
+        parent.initDefaults.call(this);
+
+        return this.extendDefaultOptions({
+            loadMore: true,
+            dataTable: {
+                columnDefs: [{
+                    orderable: false,
+                    targets: [0, 3] // TODO
+                }]
+            }
+        });
+    };
+
+    /**
+     * @inheritDoc
+     */
+    this.getColumns = function() {
+				// TODO
+        return [{
+            // 1. Line
+            name: 'line',
+            className: 'text_right',
+            type: TableColumnRenderHelper.TYPE_INT
+        }, {
+            // 2. Name
+            name: 'name',
+            className: 'text_left',
+            type: TableColumnRenderHelper.TYPE_TEXT
+        }, {
+            // 3. Email
+            name: 'email',
+            className: 'text_left',
+            type: TableColumnRenderHelper.TYPE_EMAIL
+        }, {
+            // 4. Responsive button
+            type: TableColumnRenderHelper.TYPE_RESPONSIVE_BTN
+        }];
+    };
+
+    /**
+     * @inheritDoc
+     */
+    this.getEntityConfig = function() {
+        return new $2Config();
+    };
+
+    // Initialize
+    this.init();
+}
+
+export default $3;
+endsnippet
