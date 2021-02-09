@@ -1,0 +1,45 @@
+priority -40
+
+snippet entlst "Partfiniti / Lists / Entity List" b
+import ${1:BaseEntityList} from '${2:js/base_v2/lists/entity-list}';
+
+/**
+ * ${3:Entity} List.
+ *
+ * @class
+ * @extends $1
+ *
+ * @param {DOMElement} listCt
+ * @param {DOMElement} tableEl
+ * @param {object}     [options]
+ */
+function ${4:Entity}List(listCt, tableEl, options) {
+    $1.call(${5:this, listCt, tableEl, options});
+    var parent = this.clone();
+    var self = this;
+
+    /**
+     * @inheritDoc
+     */
+    this.initDefaults = function() {
+        parent.initDefaults.call(this);
+
+        return this.extendDefaultOptions({
+            filterGroupClass: $4FilterGroup, // TODO
+            filterGroupCt: '.${4/.*/\l$0/}ListToolsCt'
+        });
+    };
+
+    /**
+     * @inheritDoc
+     */
+    this.getEntityConfig = function() {
+        return new $4Config(); // TODO
+    };
+
+    // Initialize
+    this.init();
+}
+
+export default $4List;
+endsnippet
