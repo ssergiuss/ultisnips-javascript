@@ -1,7 +1,7 @@
 priority -40
 
 snippet enttbl "Partfiniti / Models / Entity" b
-import BaseEntityTable         from 'js/base_v2/tables/entity-table';
+import BaseEntityTable from 'js/base_v2/tables/entity-table';
 import TableColumnRenderHelper from 'js/helpers/table/column-render-helper';
 import $2Config from 'path/to/entity-config'; // TODO
 
@@ -30,7 +30,7 @@ function ${3:${2:Entity}Table}(tableEl, options) {
             dataTable: {
                 columnDefs: [{
                     orderable: false,
-                    targets: [0, 3] // TODO
+                    targets: [0, 4] // TODO
                 }]
             }
         });
@@ -40,7 +40,7 @@ function ${3:${2:Entity}Table}(tableEl, options) {
      * @inheritDoc
      */
     this.getColumns = function() {
-				// TODO
+        // TODO
         return [{
             // 1. Line
             name: 'line',
@@ -56,8 +56,15 @@ function ${3:${2:Entity}Table}(tableEl, options) {
             name: 'email',
             className: 'text_left',
             type: TableColumnRenderHelper.TYPE_EMAIL
-        }, {
-            // 4. Responsive button
+				}, {
+            // 4. Company
+            name: 'company',
+            className: 'text_left',
+            render: function(record) {
+                return self.renderer.renderCompany(record); // TODO
+            }
+				}, {
+            // 5. Responsive button
             type: TableColumnRenderHelper.TYPE_RESPONSIVE_BTN
         }];
     };
@@ -66,7 +73,7 @@ function ${3:${2:Entity}Table}(tableEl, options) {
      * @inheritDoc
      */
     this.getEntityConfig = function() {
-        return new $2Config();
+        return new $2Config(); // TODO
     };
 
     // Initialize

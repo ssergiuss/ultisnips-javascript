@@ -1,0 +1,39 @@
+priority -40
+
+snippet entrdr "Partfiniti / Helpers / Renderer" b
+import BaseRenderer from 'js/base_v3/helpers/renderer';
+// TODO remove if not used
+import Renderer from 'js/components/renderer';
+
+/**
+ * ${1:Entity} Renderer.
+ *
+ * @class
+ * @extends BaseRenderer
+ *
+ * @param {object} [options]
+ */
+function ${3:${2:Entity}Renderer}(options) {
+    BaseRenderer.call(this, options);
+    var parent = this.clone();
+    var self = this;
+
+    /**
+     * TODO remove, this is an example
+     * Render foreign contact location.
+     *
+     * @param  {BomForeignCompanyAssociation} bomForeignCompanyAssociation
+     * @return {string}
+     */
+    this.renderForeignContactLocation = function(bomForeignCompanyAssociation) {
+        return this.wrapText(Renderer.LocationAndCity(
+            bomForeignCompanyAssociation.getForeignContactSoldToAddress()
+        ));
+    };
+
+    // Initialize
+    this._init();
+}
+
+export default $3;
+endsnippet
