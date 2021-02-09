@@ -1,0 +1,49 @@
+priority -40
+
+snippet entcfg "Partfiniti / Configs / Entity Config" b
+import BaseEntityConfig from 'js/base_v3/configs/entity-config';
+import $2 from 'path/to/entity-class'; // TODO
+import $2List from 'path/to/entity-list-class'; // TODO
+import $2Table from 'path/to/entity-table'; // TODO
+import $2SaveForm from 'path/to/entity-save-form'; // TODO
+import DefaultEntityRemoveConfirmation from 'js/default/confirmations/entity-remove-confirmation';
+
+/**
+ * ${1:Entity} Config.
+ *
+ * @class
+ * @extends BaseEntityConfig
+ *
+ * @param {object} [options]
+ */
+function ${3:${2:Entity}Config}(options) {
+    BaseEntityConfig.call(this, options);
+    var parent = this.clone();
+    var self = this;
+
+    /**
+     * @inheritDoc
+     */
+    this._initDefaults = function() {
+        parent._initDefaults.call(this);
+
+        return this._extendDefaultOptions({
+            entityName              : '${4}',
+            entityClass             : $2, // TODO
+            tableClass              : $2Table, // TODO
+            listClass               : $2List, // TODO
+            listUrl                 : '/entity-list-url', // TODO
+            saveFormClass           : $2SaveForm, // TODO
+            saveUrl                 : '/entity-save-url', // TODO
+            saveFormTemplateSelector: '#default-uom-conversion-save-form',
+            removeConfirmationClass : DefaultEntityRemoveConfirmation,
+            removeUrl               : 'entity-remove-url' // TODO
+        });
+    };
+
+    // Initialize
+    this._init();
+}
+
+export default $3;
+endsnippet
