@@ -1,0 +1,91 @@
+priority -40
+
+snippet entsfrm "Partfiniti / Forms / Entity Save Form" b
+import {1:BaseEntitySaveForm} from '${2:js/base_v2/forms/entity-save-form}';
+import $4Config from 'path/to/entity-config';
+
+/**
+ * ${3:Entity} Save Form.
+ *
+ * @class
+ * @extends $1
+ *
+ * @param {object} [record]
+ * @param {object} [options]
+ */
+function ${5:${4:Entity}SaveForm}(record, options) {
+    $1.call(${6:this, record, options});
+    var parent = this.clone();
+    var self = this;
+
+    /**
+     * @inheritDoc
+     */
+    this.initDefaults = function() {
+        parent.initDefaults.call(this);
+
+        return this.extendDefaultOptions({
+            // TODO
+        });
+    };
+
+    /**
+     * @inheritDoc
+     */
+    this.processOptions = function() {
+        parent.processOptions.call(this);
+
+        // TODO
+
+        return this;
+    };
+
+    /**
+     * @inheritDoc
+     */
+    this.initFields = function() {
+        parent.initFields.call(this);
+
+        // TODO
+
+        return this;
+    };
+
+    /**
+     * @inheritDoc
+     */
+    this.processFormData = function(formData) {
+        formData = parent.processFormData.call(this, formData);
+
+        // TODO
+
+        return formData;
+    };
+
+    /**
+     * @inheritDoc
+     */
+    this.getConstraints = function() {
+        // TODO
+        return {
+            'user[name]': {
+                'required': {
+                    'message': this.translator.get('error_empty_user_name')
+                }
+            }
+        };
+    };
+
+    /**
+     * @inheritDoc
+     */
+    this.getEntityConfig = function() {
+        return new $4Config();
+    };
+
+    // Initialize
+    this.init();
+}
+
+export default $5;
+endsnippet
