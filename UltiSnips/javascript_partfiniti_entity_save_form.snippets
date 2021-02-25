@@ -65,10 +65,10 @@ function ${5:${4:Entity}SaveForm}(record, options) {
     /**
      * @inheritDoc
      */
-    this.getConstraints = function() {
+    this.getEntityConstraints = function() {
         // TODO
         return {
-            'user[name]': {
+            'name': {
                 'required': {
                     'message': this.translator.get('error_empty_user_name')
                 }

@@ -1,0 +1,83 @@
+priority -40
+
+snippet fltgr "Partfiniti / Filters / Filter Group" b
+import ${1:BaseFilterGroup} from '${2:js/base_v2/filter-group}';
+import DateRangeFilter from 'js/components_v2/date-range-filter'; // TODO remove if not used
+import SelectFilter from 'js/components/select-filter'; // TODO remove if not used
+import TextFilter from 'js/components/text-filter'; // TODO remove if not used
+
+/**
+ * ${3:Entity} Filter Group.
+ *
+ * @class
+ * @extends $1
+ *
+ * @param {DOMElement} filterGroupCt
+ * @param {object}     [options]
+ */
+function ${5:$4{Entity}FilterGroup}(filterGroupCt, options) {
+    $1.call(${6:this, filterGroupCt, options});
+    var parent = this.clone();
+    var self = this;
+
+    /**
+     * TODO
+     * @inheritDoc
+     */
+    this.filterParams = [{
+        name: 'queryFilter',
+        className: TextFilter,
+        filterEl: 'input[name="query"]'
+    }, {
+        name: 'updatedDateRangeFilter',
+        className: DateRangeFilter,
+        filterEl: '.elementTemplateUpdatedDateRangePicker'
+    }, {
+        name: 'ownerUserFilter',
+        className: SelectFilter,
+        filterEl: 'select[name="owner_corporate_user_ids"]'
+    }];
+
+    /**
+     * @inheritDoc
+     */
+    this.initDefaults = function() {
+        parent.initDefaults.call(this);
+
+        // TODO
+        return this.extendDefaultOptions({
+            queryFilter: {
+                name: 'query'
+            },
+            updatedDateRangeFilter: {
+                autoUpdateInput: false,
+                allRangeEmpty: true,
+                name: 'updated_at_date_range',
+                ranges: {
+                    'All': [
+                        moment({ year: DateRangeFilter.BEGINNING_YEAR }),
+                        moment()
+                    ],
+                    'Today': [moment()],
+                    'Month to Date': [moment().startOf('month'), moment()],
+                    'Year to Date': [moment().startOf('year'), moment()]
+                }
+            },
+            ownerUserFilter: {
+                name: 'owner_corporate_user_ids',
+                fieldClassName: CorporateUserField, // TODO import
+                fieldOptions: {
+                    select2: {
+                        placeholder: 'All Owners'
+                    }
+                }
+            }
+        });
+    };
+
+    // Initialize
+    this.init();
+}
+
+export default $5;
+endsnippet
